@@ -28,7 +28,7 @@ figma.ui.onmessage = async (msg) => {
     const gptResponse = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer YOUR_OPENAI_API_KEY",
+        "Authorization": "Bearer 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",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
