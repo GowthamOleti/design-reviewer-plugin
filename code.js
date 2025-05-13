@@ -32,7 +32,7 @@ figma.ui.onmessage = async (msg) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "gpt-4",
+        model: "gpt-4.1",
         messages: [{
           role: "user",
           content: `You're a UI/UX design expert. Analyze the following design and provide 3 actionable improvements:\n${metadata}`
