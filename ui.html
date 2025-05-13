@@ -1,0 +1,53 @@
+<html>
+<head>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, sans-serif;
+      background-color: #F9FAFB;
+      padding: 20px;
+      color: #1D1D1F;
+      width: 300px;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+    button {
+      background-color: #007AFF;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #005FCC;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>Design Reviewer</h2>
+  <p>Select a frame and click below to get feedback.</p>
+  <button id="reviewBtn">Review Design</button>
+  <div id="result"></div>
+  <script>
+    document.getElementById("reviewBtn").onclick = () => {
+      parent.postMessage({ pluginMessage: { type: "review-design" } }, "*");
+    };
+
+    onmessage = (event) => {
+      const { type, result } = event.data.pluginMessage;
+      if (type === "review-result") {
+        document.getElementById("result").innerText = result;
+      }
+    };
+  </script>
+</body>
+</html>
